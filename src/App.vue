@@ -2,7 +2,7 @@
   <div id="app">
     <h1>{{title}}</h1>
     <ol>
-      <li v-for="item in items">
+      <li v-for="item in items" v-bind:class="{ finished: item.finished }">
         {{ item.label }}
       </li>
     </ol>
@@ -25,6 +25,10 @@ export default {
 </script>
 
 <style>
+.finished {
+  text-decoration: line-through
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -32,5 +36,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 </style>
