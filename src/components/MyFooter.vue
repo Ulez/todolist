@@ -7,11 +7,13 @@
 </template>
 
 <script>
+import Bus from '@/components/bus.js'
 export default {
   name: 'hello',
   data() {
     return {
-      msg: 'message from footer'
+      msg: 'message from footer',
+      items: ''
     }
   },
   props: ['msgFromFather'],
@@ -19,7 +21,16 @@ export default {
     doThis: function() {
       this.$emit('child-to-parent', this.msg)
       console.log(this.msgFromFather)
+    },
+    resss: function(items) {
+      console.log(items)
     }
+  },
+  created() {
+    Bus.$on('on-enter', this.resss);
+  },
+  destroyed() {
+    Bus.$off('id-selected', this.resss)
   }
 }
 </script>

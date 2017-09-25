@@ -17,6 +17,7 @@
 import Store from './store'
 import MyFooter from '@/components/MyFooter'
 import Hello from '@/components/Hello'
+import Bus from '@/components/bus.js'
 export default {
   data: function() {
     return {
@@ -45,6 +46,7 @@ export default {
         finished: false
       })
       this.newItem = ''
+      Bus.$emit('on-enter', this.items)
     },
     listenChild: function(msg) {
       console.log(msg)
