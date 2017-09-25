@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <h1>{{ msgFromFather }}</h1>
     <button @click="doThis">clickMe</button>
   </div>
 </template>
@@ -13,7 +14,7 @@ export default {
       msg: 'message from footer'
     }
   },
-  props:['msgFromFather'],
+  props: ['msgFromFather'],
   methods: {
     doThis: function() {
       console.log(this.msgFromFather)
