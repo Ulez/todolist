@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h1>{{ msgFromFather }}</h1>
-    <button @click="doThis">clickMe</button>
+    <button @click="doThis">clickToSay</button>
   </div>
 </template>
 
@@ -17,6 +17,7 @@ export default {
   props: ['msgFromFather'],
   methods: {
     doThis: function() {
+      this.$emit('child-to-parent', this.msg)
       console.log(this.msgFromFather)
     }
   }

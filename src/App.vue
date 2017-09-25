@@ -7,8 +7,9 @@
         {{ item.label }}
       </li>
     </ol>
+    <p>child say:{{childWords}}</p>
     <!-- <hello></hello> -->
-    <my-footer msgFromFather="msg From Father."></my-footer>
+    <my-footer msgFromFather="msg From Father." v-on:child-to-parent='listenChild'></my-footer>
   </div>
 </template>
 
@@ -21,10 +22,11 @@ export default {
     return {
       title: 'This is todolist',
       items: Store.fetch(),
-      newItem: ''
+      newItem: '',
+      childWords: ''
     }
   },
-  components: {MyFooter,Hello},
+  components: { MyFooter, Hello },
   watch: {
     items: {
       handler: function(items) {
@@ -43,6 +45,10 @@ export default {
         finished: false
       })
       this.newItem = ''
+    },
+    listenChild: function(msg) {
+      console.log(msg)
+      this.childWords = msg
     }
   }
 }
