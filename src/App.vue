@@ -7,11 +7,15 @@
         {{ item.label }}
       </li>
     </ol>
+    <!-- <hello></hello> -->
+    <my-footer msgFromFather="msg From Father."></my-footer>
   </div>
 </template>
 
 <script>
 import Store from './store'
+import MyFooter from '@/components/MyFooter'
+import Hello from '@/components/Hello'
 export default {
   data: function() {
     return {
@@ -20,6 +24,7 @@ export default {
       newItem: ''
     }
   },
+  components: {MyFooter,Hello},
   watch: {
     items: {
       handler: function(items) {
